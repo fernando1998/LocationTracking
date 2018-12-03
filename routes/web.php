@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
+});
+
+
+Auth::routes();
+
+Route::middleware('auth')->group(function (){
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/users', 'Web\TrackingController@index')->name('users.index');
 });
