@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('set-points','Api\LocationController@setPoints');
+Route::get('get-points','Api\LocationController@getPoints');

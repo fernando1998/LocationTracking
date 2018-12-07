@@ -21,4 +21,5 @@ Auth::routes();
 Route::middleware('auth')->group(function (){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/users', 'Web\TrackingController@index')->name('users.index');
+    Route::get('/users/{id}/tracking', 'Web\TrackingController@tracking')->name('users.tracking');
 });

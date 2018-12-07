@@ -30,7 +30,7 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->dni}}</td>
                                         <td>
-                                            <a href=""
+                                            <a href="{{route('users.tracking',$user->id)}}"
                                                aria-label="Ubicación" data-original-title="Ubicación"
                                                data-toggle="tooltip">
                                                 <i class="fa fa-map-marker text-inverse m-r-10"></i>

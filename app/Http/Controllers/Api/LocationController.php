@@ -50,7 +50,7 @@ class LocationController extends Controller
             $points = new Point;
             $points->user_id = $user->id;
             $points->lat = $request->lat;
-            $points->long = $request->long;
+            $points->lng = $request->long;
             $points->save();
 
             if ($points->wasRecentlyCreated) {
@@ -74,5 +74,33 @@ class LocationController extends Controller
 
             return response()->json($response, 500);
         }
+    }
+
+    public function getPoints()
+    {
+        $points = Point::query()
+            ->select('lat','lng')
+            ->whereUserId(2)
+            ->orderByDesc('created_at')
+            ->limit(2)
+            ->get();
+        $markers = [];
+
+        foreach ($points as $point) {
+            $object = [
+                'position' => ['lat' => floatval($point->lat), 'lng' => floatval($point->lng)]
+            ];
+            array_push($markers, $object);
+        }
+        $data = [
+            'path' => $points->map(function ($point){
+                $point->lat = floatval($point->lat);
+                $point->lng = floatval($point->lng);
+                return $point;
+            }),
+            'markers' => $markers
+        ];
+        Log::info(json_encode($data));
+        return response()->json($data, 200);
     }
 }

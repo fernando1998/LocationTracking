@@ -7,7 +7,17 @@
 
 require('./bootstrap');
 
+import * as VueGoogleMaps from 'vue2-google-maps';
+
 window.Vue = require('vue');
+window.Bus = new Vue;
+
+Vue.use(VueGoogleMaps,{
+    load:{
+        key : 'AIzaSyA0_U1zBYbQUdjkoW3xs5crieQldp4DORE',
+        libraries: 'places',
+    }
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,6 +26,9 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('tracking-map', require('./components/TrackingMap.vue'));
+
+
 
 const app = new Vue({
     el: '#app'

@@ -17,7 +17,7 @@ class CreatePointsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('lat');
-            $table->string('long');
+            $table->string('lng');
             $table->timestamps();
 
             $table->foreign('user_id')

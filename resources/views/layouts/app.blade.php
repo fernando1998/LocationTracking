@@ -129,16 +129,9 @@
 <script src="{{asset('assets/js/bootstrap-show-password.min.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 <script src="{{asset('assets/js/summernote.min.js')}}"></script>
-<script src="{{asset('assets/js/general/custom.js')}}"></script>
+{{--<script src="{{asset('assets/js/general/custom.js')}}"></script>--}}
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/jasny-bootstrap.min.js')}}"></script>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        /*$("#allUsers").dataTable({
-            paging: false,
-        });*/
-    });
-</script>
+<script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
