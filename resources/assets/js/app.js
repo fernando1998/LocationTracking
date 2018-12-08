@@ -14,7 +14,11 @@ window.Bus = new Vue;
 
 Vue.use(VueGoogleMaps,{
     load:{
+<<<<<<< HEAD
         key : 'YOUR_GOOGLE_KEY',
+=======
+        key : 'API_KEY',
+>>>>>>> bef58cf98ed81887ab12a51ef7d4af16ae803174
         libraries: 'places',
     }
 });
