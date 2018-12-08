@@ -50486,9 +50486,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         console.log('Component map mounted.');
+        setInterval(this.lastPosition(), 5000);
     },
     created: function created() {
-        this.lastPosition();
+        //this.lastPosition();
+        this.message();
     },
 
     methods: {
@@ -50500,8 +50502,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 _this.markers = data.markers;
                 _this.path = data.path;
-                console.log(data);
+                console.log('Revisando neuva localización');
+            }).catch(function (_ref2) {
+                var error = _ref2.error;
+
+                console.log(error);
             });
+        },
+        message: function message() {
+            var self = this;
+            setInterval(function () {
+                self.lastPosition();
+            }, 10000);
         }
     }
 });

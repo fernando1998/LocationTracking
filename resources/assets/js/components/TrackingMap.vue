@@ -38,20 +38,31 @@
             }
         },
         mounted() {
-            console.log('Component map mounted.')
+            console.log('Component map mounted.');
+            setInterval(this.lastPosition(), 5000);
+
         },
-        created(){
-            this.lastPosition();
+        created() {
+            //this.lastPosition();
+            this.message();
         }
         ,
-        methods:{
+        methods: {
             lastPosition: function () {
-                window.axios.get('/api/get-points').then(({ data }) => {
+                window.axios.get('/api/get-points').then(({data}) => {
                     this.markers = data.markers;
                     this.path = data.path;
-                     console.log(data);
+                    console.log('Revisando neuva localización');
+                }).catch(({error})=>{
+                    console.log(error);
                 });
+            },
+            message: function () {
+                let self = this;
+                setInterval(function () {
+                    self.lastPosition();
+                }, 10000);
             }
         }
     }
-</script>
+</script>|

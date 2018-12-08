@@ -14,7 +14,7 @@ window.Bus = new Vue;
 
 Vue.use(VueGoogleMaps,{
     load:{
-        key : 'AIzaSyA0_U1zBYbQUdjkoW3xs5crieQldp4DORE',
+        key : 'YOUR_GOOGLE_KEY',
         libraries: 'places',
     }
 });
